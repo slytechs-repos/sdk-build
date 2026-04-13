@@ -54,7 +54,7 @@
                 <module>../jnetpcap-api</module>
                 <module>../jnetpcap-bindings</module>
                 <module>../jnetpcap-sdk</module>
-                <module>../jnetpcap-examples</module>
+        		<!-- jnetpcap-examples intentionally excluded - GitHub only -->
             </modules>
         </profile>
 
@@ -65,7 +65,7 @@
                 <module>../jnetworks-pcap</module>
                 <module>../jnetworks-file-pcap</module>
                 <module>../jnetworks-sdk</module>
-                <module>../jnetworks-examples</module>
+        		<!-- jnetworks-examples intentionally excluded - GitHub only -->
             </modules>
         </profile>
 
