@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.slytechs.sdk</groupId>
+        <artifactId>sdk-parent</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+        <relativePath>../sdk-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>sdk-build</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Sly Technologies SDK Build - OSS</name>
+    <description>Reactor aggregator for all OSS SDK modules deployed to Maven Central.
+        Run "mvn clean deploy" from this directory to deploy the full OSS SDK.</description>
+
+    <!--
+        Default build: only modules that are currently checked out.
+        Add profiles below as module directories become available on disk.
+
+        Eclipse flat layout: all sibling modules referenced via ../
+        Run from sdk-build/ directory:
+            mvn clean install                    (default modules)
+            mvn clean install -P jnetpcap        (+ jnetpcap modules)
+            mvn clean install -P jnetworks       (+ jnetworks modules)
+            mvn clean install -P jnetpcap,jnetworks  (full OSS build)
+            mvn clean deploy  -P jnetpcap,jnetworks  (deploy all to Maven Central)
+    -->
+    <modules>
+        <!-- Build infrastructure -->
+        <module>../sdk-parent</module>
+        <module>../sdk-bom</module>
+
+        <!-- SDK Core -->
+        <module>../sdk-common</module>
+        <module>../sdk-common-systables</module>
+
+        <!-- Protocol Packs -->
+        <module>../sdk-protocol-core</module>
+        <module>../sdk-protocol-tcpip</module>
+        <module>../sdk-protocol-web</module>
+        <module>../sdk-protocol-infra</module>
+    </modules>
+
+    <profiles>
+
+        <profile>
+            <id>jnetpcap</id>
+            <modules>
+                <module>../jnetpcap-api</module>
+                <module>../jnetpcap-bindings</module>
+                <module>../jnetpcap-sdk</module>
+                <module>../jnetpcap-examples</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>jnetworks</id>
+            <modules>
+                <module>../jnetworks-api</module>
+                <module>../jnetworks-pcap</module>
+                <module>../jnetworks-file-pcap</module>
+                <module>../jnetworks-sdk</module>
+                <module>../jnetworks-examples</module>
+            </modules>
+        </profile>
+
+    </profiles>
+
+</project>
