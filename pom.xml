@@ -43,7 +43,7 @@
         <module>../sdk-protocol-core</module>
         <module>../sdk-protocol-tcpip</module>
         <module>../sdk-protocol-web</module>
-        <module>../sdk-protocol-infra</module>
+<!--        <module>../sdk-protocol-infra</module>-->
     </modules>
 
     <profiles>
